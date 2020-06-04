@@ -58,13 +58,13 @@ Country.push_back(Chine);
         while(!pq.empty()&&requnits>0){
             
             long long cost=pq.top().second.first;
-            long long req=pq.top().second.second*time;
-            long long x=requnits/req;
-            //cout<<req<<" "<<cost<<endl;
-            if(requnits>=req){
+            long long generate=pq.top().second.second*time;
+            long long x=requnits/generate;
+            
+            if(requnits>=generate){
             totalcost+=(x)*(cost)*time;
-            requnits=requnits-(x*req);
-            machines.push_back({capacity[req],x});
+            requnits=requnits-(x*generate);
+            machines.push_back({capacity[generate/time],x});
             }
             pq.pop();
         }
